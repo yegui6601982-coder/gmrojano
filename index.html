@@ -1,136 +1,428 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>gmrojano.pdf – Portafolio</title>
+  <title>GMRojano – Guillermo Molina Rojano | Escritor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b0b0f;
-      color: #f5f5f5;
+    :root {
+      --bg: #0b0b0f;
+      --surface: #111118;
+      --card: #16161f;
+      --accent: #ffcc66;
+      --accent2: #c44f3a;
+      --text: #f5f5f5;
+      --muted: #aaaaaa;
+      --border: rgba(255,255,255,0.06);
     }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(5, 5, 10, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.5rem;
-    }
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      margin-left: 1.25rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    nav a:hover {
-      color: #ffcc66;
-    }
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-    section {
-      padding: 3rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    h1, h2 {
-      margin-top: 0;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    h2 {
-      font-size: 1.1rem;
-      color: #ffcc66;
-    }
-    p {
-      line-height: 1.6;
-      max-width: 60ch;
-    }
-    .tagline {
-      margin-top: 0.5rem;
-      color: #c7c7c7;
-    }
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    @media (min-width: 720px) {
-      .grid-2 {
-        grid-template-columns: 1.2fr 1fr;
-      }
-    }
-    .label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #aaaaaa;
-      margin-bottom: 0.5rem;
-    }
-    .card {
-      padding: 1.25rem 1.5rem;
-      border-radius: 0.75rem;
-      background: radial-gradient(circle at top left, #1f1f2b, #101018);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      border: 1px solid #ffcc66;
-      color: #0b0b0f;
-      background: #ffcc66;
-      text-decoration: none;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-    .btn:hover {
-      background: #ffd98a;
-      border-color: #ffd98a;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem 3rem;
-      font-size: 0.8rem;
-      color: #888;
-    }
-    a.inline {
-      color: #ffcc66;
-      text-decoration: none;
-    }
-    a.inline:hover {
-      text-decoration: underline;
-    }
+
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,11,15,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+nav a {
+  font-family: 'DM Mono', monospace;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--accent); }
+
+/* MAIN */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+h1 span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+
+h2 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 62ch;
+}
+p strong { color: var(--text); }
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0.75rem 0 1.5rem;
+  max-width: 52ch;
+}
+
+.location {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.location span { color: var(--accent); }
+
+/* GRID */
+.grid { display: grid; gap: 1.25rem; }
+
+@media (min-width: 720px) {
+  .grid-2 { grid-template-columns: 1.2fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* CARD */
+.card {
+  padding: 1.5rem 1.75rem;
+  border-radius: 0.5rem;
+  background: radial-gradient(circle at top left, #1f1f2b, #101018);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.card:hover {
+  border-color: rgba(255,204,102,0.3);
+  transform: translateY(-2px);
+}
+
+.card.amazon { border-top: 2px solid #FF9900; }
+.card.wattpad { border-top: 2px solid #f97316; }
+.card.editorial { border-top: 2px solid #60a5fa; }
+.card.progress  { border-top: 2px solid #4ade80; }
+
+.label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.card-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.card p { font-size: 1.05rem; margin: 0; }
+
+/* PLATFORM BADGE */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+.badge-amazon  { color: #FF9900; border-color: rgba(255,153,0,0.35); }
+.badge-wattpad { color: #f97316; border-color: rgba(249,115,22,0.35); }
+.badge-editorial { color: #60a5fa; border-color: rgba(96,165,250,0.35); }
+.badge-progress  { color: #4ade80; border-color: rgba(74,222,128,0.35); }
+.badge-collab    { color: var(--accent); border-color: rgba(255,204,102,0.35); }
+
+/* STATUS DOT */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.dot.green  { background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6); animation: pulse 2s infinite; }
+.dot.blue   { background: #60a5fa; box-shadow: 0 0 6px rgba(96,165,250,0.5); }
+.dot.yellow { background: var(--accent); box-shadow: 0 0 6px rgba(255,204,102,0.4); }
+.dot.grey   { background: var(--muted); }
+
+/* PROGRESS BAR */
+.progress-wrap { margin-top: 1.25rem; }
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.progress-bar {
+  height: 2px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 99px;
+  transition: width 1.4s ease;
+}
+
+/* LANG TOGGLE */
+.lang-toggle { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+.lang-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+.lang-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.bio-text { display: none; }
+.bio-text.active { display: block; }
+
+/* BLOG */
+.blog-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+.blog-item:last-child { border-bottom: none; }
+.blog-item:hover .blog-title { color: var(--accent); }
+.blog-item:hover .blog-arrow { transform: translate(3px, -3px); }
+
+.blog-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.blog-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  transition: color 0.3s;
+}
+.blog-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-left: 0.75rem;
+  border-radius: 2px;
+}
+.blog-arrow { color: var(--accent); font-size: 1.1rem; transition: transform 0.3s; }
+
+/* SOCIAL */
+.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+@media (min-width: 720px) { .social-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.social-card {
+  background: radial-gradient(circle at top left, #1f1f2b, #101018);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.4rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: all 0.3s;
+}
+.social-card:hover { border-color: rgba(255,204,102,0.35); transform: translateY(-2px); }
+.social-icon { font-size: 1.3rem; flex-shrink: 0; }
+.social-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+.social-handle { font-size: 0.95rem; color: var(--muted); }
+
+/* INLINE LINK */
+a.inline { color: var(--accent); text-decoration: none; }
+a.inline:hover { text-decoration: underline; }
+
+/* BTN */
+.btn {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--bg);
+  background: var(--accent);
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: all 0.3s;
+}
+.btn:hover { background: #ffd98a; border-color: #ffd98a; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  margin-left: 0.75rem;
+}
+.btn-ghost:hover { background: rgba(255,204,102,0.08); }
+
+/* SECTION DIVIDER LABEL */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+```
+
   </style>
 </head>
 <body>
+
   <header>
     <div class="nav">
-      <div class="logo">GMRojano</div>
+      <a href="#" class="logo">GMRojano</a>
       <nav>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#obras">Obras</a>
@@ -142,99 +434,258 @@
   </header>
 
   <main>
-    <section id="sobre-mi">
-      <div class="grid grid-2">
-        <div>
-          <h1>Escritura, ciudades y memoria</h1>
-          <p class="tagline">
-            Málaga y Manchester como dos orillas de una misma voz. Historias que cruzan fronteras, lenguajes y biografías.
-          </p>
-          <p>
-            Aquí puedes escribir un breve texto de presentación: quién eres, qué escribes, qué te obsesiona creativamente.
-            Piensa en esto como la puerta de entrada a tu universo, no como un currículum.
-          </p>
-          <a class="btn" href="gmrojano.pdf" target="_blank">Ver dossier completo (PDF)</a>
-        </div>
-        <div class="card">
-          <div class="label">Breve perfil</div>
-          <p>
-            Autor, editor y narrador de historias que buscan dejar huella.  
-            Puedes usar este espacio para un resumen más concreto: publicaciones, proyectos clave, tono de tu obra.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <section id="obras">
-      <h2>Obras</h2>
-      <p>
-        Aquí puedes listar tus libros, relatos, proyectos literarios o colaboraciones.  
-        Título, año, una línea de contexto. Si en tu PDF ya lo tienes ordenado, puedes copiar y pegar el contenido aquí.
-      </p>
-      <div class="grid">
-        <div class="card">
-          <div class="label">Ejemplo de obra</div>
-          <p><strong>Título de la obra</strong> — breve descripción, temática, editorial o contexto.</p>
-        </div>
-        <div class="card">
-          <div class="label">Otra obra</div>
-          <p><strong>Otro título</strong> — puedes repetir este patrón tantas veces como necesites.</p>
-        </div>
-      </div>
-    </section>
+```
+<!-- HERO / SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="grid grid-2">
+    <div class="reveal">
+      <h1>Guillermo Molina<span>Rojano</span></h1>
+      <p class="location">📍 Málaga → <span>Manchester</span></p>
+      <p class="tagline">Dos idiomas, dos ciudades, una sola voz. Historias que cruzan fronteras, lenguajes y biografías.</p>
 
-    <section id="blog">
-      <h2>Blog</h2>
-      <p>
-        Si en tu PDF tienes secciones de artículos, reflexiones o entradas de blog, este es el lugar.
-        Puedes empezar con 2–3 textos breves, o simplemente anunciar que pronto habrá contenido aquí.
-      </p>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('es', this)">ES</button>
+        <button class="lang-btn" onclick="switchLang('en', this)">EN</button>
+      </div>
+
+      <div class="bio-text active" id="bio-es">
+        <p>Escritor nacido en <strong>Málaga</strong> y afincado en <strong>Manchester</strong> desde hace más de doce años. Vivo entre dos idiomas y dos culturas que se han convertido, sin quererlo, en los personajes de todo lo que escribo. Publico en <strong>Amazon</strong> y <strong>Wattpad</strong>, tengo proyectos a la espera de editoriales y colaboro con otros autores como prologuista.</p>
+      </div>
+      <div class="bio-text" id="bio-en">
+        <p>Writer born in <strong>Málaga, Spain</strong>, living in <strong>Manchester, UK</strong> for over twelve years. I exist between two languages and two cultures that have quietly become the main characters of everything I write. I publish on <strong>Amazon</strong> and <strong>Wattpad</strong>, with projects awaiting editorial approval and collaborations as a prologue writer.</p>
+      </div>
+
+      <a class="btn" href="#obras">Ver mis obras</a>
+      <a class="btn btn-ghost" href="#contacto">Contacto</a>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.15s">
       <div class="card">
-        <div class="label">Entrada destacada</div>
-        <p>
-          Título de una entrada o reflexión.  
-          Un pequeño párrafo que capture tu tono y tu mirada sobre el mundo.
-        </p>
+        <div class="label">Perfil rápido</div>
+        <p><strong>4 obras publicadas</strong> en Amazon y Wattpad<br>
+        <strong>2 manuscritos</strong> en editoriales<br>
+        <strong>2 idiomas:</strong> español e inglés<br>
+        <strong>12+ años</strong> viviendo en Manchester<br>
+        Colaborador como <strong>prologuista</strong></p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <p>
-        Aquí puedes hablar de proyectos en marcha: libros en proceso, colaboraciones, talleres, newsletters, etc.
-      </p>
-      <div class="card">
-        <div class="label">Proyecto en curso</div>
-        <p>
-          Describe brevemente un proyecto que te ilusione ahora mismo. Qué buscas, qué experimentas, qué te gustaría que
-          encontrara el lector ahí.
-        </p>
+<!-- OBRAS -->
+<section id="obras">
+  <h2>Relatos & Obras</h2>
+
+  <div class="section-label reveal">Amazon — Publicado</div>
+  <div class="grid grid-2 reveal">
+    <div class="card amazon">
+      <span class="badge badge-amazon">Amazon</span>
+      <span class="badge badge-amazon" style="margin-left:0.4rem">ES</span>
+      <div class="card-title">El teatro de los espejos</div>
+      <p>Relato publicado en Amazon en español.</p>
+      <br>
+      <a class="inline" href="https://bit.ly/4u3NoKw" target="_blank">Ver en Amazon →</a>
+    </div>
+    <div class="card amazon">
+      <span class="badge badge-amazon">Amazon</span>
+      <span class="badge badge-amazon" style="margin-left:0.4rem">EN</span>
+      <div class="card-title">The Theatre of Mirrors</div>
+      <p>English version published on Amazon.</p>
+      <br>
+      <a class="inline" href="https://bit.ly/4u3NoKw" target="_blank">View on Amazon →</a>
+    </div>
+  </div>
+
+  <div class="section-label reveal" style="margin-top:2.5rem">Wattpad — Publicado</div>
+  <div class="grid grid-2 reveal">
+    <div class="card wattpad">
+      <span class="badge badge-wattpad">Wattpad</span>
+      <span class="badge badge-wattpad" style="margin-left:0.4rem">ES</span>
+      <div class="card-title">Vigilia</div>
+      <p>Relato disponible en Wattpad.</p>
+      <br>
+      <a class="inline" href="https://www.wattpad.com/user/GMRojano" target="_blank">Leer en Wattpad →</a>
+    </div>
+    <div class="card wattpad">
+      <span class="badge badge-wattpad">Wattpad</span>
+      <span class="badge badge-wattpad" style="margin-left:0.4rem">ES</span>
+      <div class="card-title">La micronauta</div>
+      <p>Relato disponible en Wattpad.</p>
+      <br>
+      <a class="inline" href="https://www.wattpad.com/user/GMRojano" target="_blank">Leer en Wattpad →</a>
+    </div>
+  </div>
+
+  <div class="section-label reveal" style="margin-top:2.5rem">Wattpad — En progreso</div>
+  <div class="grid reveal">
+    <div class="card wattpad">
+      <span class="badge badge-wattpad">Wattpad</span>
+      <span class="badge badge-progress" style="margin-left:0.4rem">EN · Cap. 4</span>
+      <div class="card-title">The Good Neighbour</div>
+      <p>Relato en inglés publicándose por capítulos. Actualmente en el capítulo 4.</p>
+      <br>
+      <a class="inline" href="https://www.wattpad.com/user/GMRojano" target="_blank">Seguir en Wattpad →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <h2>Pensamientos</h2>
+  <p>Reflexiones sobre escritura, proceso creativo, lecturas y la vida entre dos países. Próximamente.</p>
+
+  <div style="margin-top:2rem">
+    <a href="#" class="blog-item reveal">
+      <span class="blog-date">Próximamente</span>
+      <div><span class="blog-title">Escribir en dos idiomas: libertad o condena</span><span class="blog-tag">Reflexión</span></div>
+      <span class="blog-arrow">↗</span>
+    </a>
+    <a href="#" class="blog-item reveal">
+      <span class="blog-date">Próximamente</span>
+      <div><span class="blog-title">Lo que Manchester le enseñó a un escritor malagueño</span><span class="blog-tag">Vida</span></div>
+      <span class="blog-arrow">↗</span>
+    </a>
+    <a href="#" class="blog-item reveal">
+      <span class="blog-date">Próximamente</span>
+      <div><span class="blog-title">La trampa del primer borrador perfecto</span><span class="blog-tag">Proceso</span></div>
+      <span class="blog-arrow">↗</span>
+    </a>
+    <a href="#" class="blog-item reveal">
+      <span class="blog-date">Próximamente</span>
+      <div><span class="blog-title">Libros que me cambiaron y que nadie conoce</span><span class="blog-tag">Lecturas</span></div>
+      <span class="blog-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <h2>Proyectos</h2>
+
+  <div class="grid grid-2">
+
+    <div class="card editorial reveal">
+      <div class="status"><span class="dot blue"></span>En editorial · Esperando respuesta</div>
+      <div class="card-title">Un tango en discordia</div>
+      <p>Novela a la espera del visto bueno editorial. Un proyecto largo y personal, de esos que se escriben porque no puedes no escribirlos.</p>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Manuscrito entregado</span><span>100%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
       </div>
-    </section>
+    </div>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>
-        Puedes añadir un correo de contacto, redes sociales o un formulario en el futuro.
-      </p>
-      <p>
-        Correo: <a class="inline" href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a><br>
-        Instagram / X / Webs de autor: añade aquí los enlaces que quieras.
-      </p>
-      <p>
-        También puedes invitar a quien llegue a descargar tu dossier completo:
-        <a class="inline" href="gmrojano.pdf" target="_blank">Descargar PDF</a>.
-      </p>
-    </section>
+    <div class="card editorial reveal" style="transition-delay:0.1s">
+      <div class="status"><span class="dot blue"></span>En editorial · Esperando respuesta</div>
+      <div class="card-title">La joven costurera</div>
+      <p>Cuento a la espera del visto bueno editorial. Una historia íntima y cuidada, cosida con paciencia.</p>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Manuscrito entregado</span><span>100%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+
+    <div class="card progress reveal" style="transition-delay:0.2s">
+      <div class="status"><span class="dot green"></span>En marcha</div>
+      <div class="card-title">The Good Neighbour</div>
+      <p>Relato en inglés publicándose por capítulos en Wattpad. Actualmente en el capítulo 4.</p>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Capítulo 4 publicado</span><span>En curso</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.3s">
+      <div class="status"><span class="dot yellow"></span>Próximamente</div>
+      <div class="card-title">Prólogo — Laura Torneiro</div>
+      <p>Colaboración como prologuista para la autora independiente Laura Torneiro. A la espera de recibir su manuscrito.</p>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Esperando manuscrito</span><span>—</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>¿Quieres ponerte en contacto, colaborar o simplemente hablar de literatura?</p>
+  <p style="margin-top:0.75rem">
+    Correo: <a class="inline" href="mailto:gmrojano82@gmail.com">gmrojano82@gmail.com</a>
+  </p>
+
+  <div class="social-grid reveal">
+    <a href="https://www.instagram.com/gmrojano" target="_blank" class="social-card">
+      <span class="social-icon">📸</span>
+      <div><span class="social-name">Instagram</span><span class="social-handle">@gmrojano</span></div>
+    </a>
+    <a href="https://www.threads.net/@gmrojano" target="_blank" class="social-card">
+      <span class="social-icon">🧵</span>
+      <div><span class="social-name">Threads</span><span class="social-handle">@gmrojano</span></div>
+    </a>
+    <a href="https://www.tiktok.com/@gmrojano" target="_blank" class="social-card">
+      <span class="social-icon">🎵</span>
+      <div><span class="social-name">TikTok</span><span class="social-handle">@gmrojano</span></div>
+    </a>
+    <a href="https://www.facebook.com/search/top?q=Guillermo%20Molina%20Rojano" target="_blank" class="social-card">
+      <span class="social-icon">📘</span>
+      <div><span class="social-name">Facebook</span><span class="social-handle">Guillermo Molina Rojano</span></div>
+    </a>
+    <a href="https://www.wattpad.com/user/GMRojano" target="_blank" class="social-card">
+      <span class="social-icon">📖</span>
+      <div><span class="social-name">Wattpad</span><span class="social-handle">GMRojano</span></div>
+    </a>
+    <a href="https://bit.ly/4u3NoKw" target="_blank" class="social-card">
+      <span class="social-icon">📦</span>
+      <div><span class="social-name">Amazon</span><span class="social-handle">El teatro de los espejos</span></div>
+    </a>
+  </div>
+</section>
+```
+
   </main>
 
   <footer>
-    © <span id="year"></span> GMRojano. Todos los derechos reservados.
+    © <span id="year"></span> Guillermo Molina Rojano — GMRojano. Todos los derechos reservados.
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function switchLang(lang, btn) {
+      document.querySelectorAll('.bio-text').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('bio-' + lang).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const progressObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.progress-fill').forEach(bar => {
+            const w = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => { bar.style.width = w; }, 300);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.card').forEach(c => progressObserver.observe(c));
   </script>
+
 </body>
 </html>
-
